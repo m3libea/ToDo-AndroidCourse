@@ -5,17 +5,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import com.m3libea.todo.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MainActivity extends AppCompatActivity {
 
     List<Item> todoItems;
-    ArrayAdapter<Item> aToDoAdapter;
+    TodoItemAdapter aToDoAdapter;
     ListView lvItems;
 
     EditText etEditText;
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     public void populateArrayItems(){
         todoItems = new ArrayList<Item>();
         readItems();
-        aToDoAdapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_1, todoItems);
+        aToDoAdapter = new TodoItemAdapter(this, todoItems);
     }
 
     private void readItems(){
