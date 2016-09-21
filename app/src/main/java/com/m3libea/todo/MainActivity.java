@@ -1,5 +1,6 @@
 package com.m3libea.todo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etEditText;
 
+    private final int REQUEST_CODE = 20;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,33 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(MainActivity.this, EditItemActivity.class);
+
+                i.putExtra("item", todoItems.get(position));
+                i.putExtra("pos", position);
+                startActivityForResult(i, REQUEST_CODE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK && requestCode == REQUEST_CODE){
+            String item = data.getExtras().getString("item");
+            int pos = data.getExtras().getInt("pos");
+
+            if(item.isEmpty()){
+                todoItems.remove(pos);
+            }else {
+                todoItems.set(pos,item);
+            }
+            aToDoAdapter.notifyDataSetChanged();
+            writeItems();
+        }
     }
 
     public void populateArrayItems(){
