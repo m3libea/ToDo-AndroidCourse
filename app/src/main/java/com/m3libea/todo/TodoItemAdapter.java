@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.m3libea.todo.model.Item;
 
+import java.text.Format;
 import java.util.List;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by m3libea on 9/21/16.
@@ -19,7 +21,7 @@ import java.util.List;
 public class TodoItemAdapter extends ArrayAdapter<Item> {
 
     public TodoItemAdapter(Context context, List<Item> items){
-        super(context, 0, items);
+        super(context, R.layout.item_list, items);
     }
 
     @NonNull
@@ -41,12 +43,21 @@ public class TodoItemAdapter extends ArrayAdapter<Item> {
 
         tvItem.setText(item.text);
 
+
         if (item.dueDate != null) {
-            tvDueDate.setText(item.dueDate.toString());
+            Format formatter = new SimpleDateFormat("MM/dd/yyyy");
+            String dateFormatted = formatter.format(item.dueDate);
+            tvDueDate.setText("Due to " + dateFormatted);
+            tvDueDate.setVisibility(View.VISIBLE);
+        } else {
+            tvDueDate.setVisibility(View.INVISIBLE);
         }
 
         if (item.priority != null) {
             tvPriority.setText(item.priority);
+            tvPriority.setVisibility(View.VISIBLE);
+        } else {
+            tvPriority.setVisibility(View.INVISIBLE);
         }
 
         return convertView;

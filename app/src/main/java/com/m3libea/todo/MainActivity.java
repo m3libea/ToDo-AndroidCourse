@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(MainActivity.this, EditItemActivity.class);
 
-                i.putExtra("item", todoItems.get(position).text);
+                i.putExtra("itemID", todoItems.get(position).getId());
                 i.putExtra("pos", position);
                 startActivityForResult(i, REQUEST_CODE);
             }
@@ -57,19 +57,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == RESULT_OK && requestCode == REQUEST_CODE){
-            String itemText = data.getExtras().getString("item");
+            Long itemID = data.getExtras().getLong("itemID");
             int pos = data.getExtras().getInt("pos");
 
-            if(itemText.isEmpty()){
-                Item item = todoItems.remove(pos);
-                item.delete();
-            }else {
-
-                Item item = todoItems.get(pos);
-                item.text = itemText;
-                todoItems.set(pos, item);
-                item.save();
-            }
+            todoItems.set(pos,Item.load(Item.class, itemID));
             aToDoAdapter.notifyDataSetChanged();
         }
     }

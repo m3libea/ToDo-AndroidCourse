@@ -5,4 +5,10 @@
     <string name="edit_label">Edit Item Below</string>
     <string name="save_label">Save</string>
     <string name="due_label">No Due Date</string>
+
+    <string-array name="priority_array">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
 </resources>
