@@ -4,7 +4,7 @@ ToDo is an android app that allows building a todo list and basic todo items man
 
 Submitted by: Rocio Romero
 
-Time spent: **6** hours spent in total
+Time spent: **64* hours spent in total
 
 ## User Stories
 
@@ -31,9 +31,21 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/OrU5zGC.gif' title='Video Walkthrough' width='326' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/kqQMDsR.gif' title='Video Walkthrough' width='326' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Project Analysis
+
+As part of your pre-work submission, please reflect on the app and answer the following questions below:
+
+**Question 1:** "What are your reactions to the Android app development platform so far? Compare and contrast Android's approach to layouts and user interfaces in past platforms you've used."
+
+**Answer:** This is not my first time with Android development. It's always a pleasure to come back after day work doing really different things. The environment gets improved really fast and it's really easy to create your layout using the provided widgets. It's always good to learn new practices and features for Android!
+
+**Question 2:** "Take a moment to reflect on the `ArrayAdapter` used in your pre-work. How would you describe an adapter in this context and what is its function in Android? Why do you think the adapter is important? Explain the purpose of the `convertView` in the `getView` method of the `ArrayAdapter`."
+
+**Answer:** I used my own custom Adapter because I wanted to use a more custom representation of each row including priority and deadline. An adapter is used in order to represent each element of our set of data into a View. `getView` is the method that describe how to represent the element at the specific position included as parameter. `convertView` is used to check if existing view is being reused, otherwise you need to inflate the view when you are creating the specific View for the position.
 
 ## Notes
 
@@ -41,7 +53,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright 2016 Rocio Romero
+    Copyright 2017 Rocio Romero
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
