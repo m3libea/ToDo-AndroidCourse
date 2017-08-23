@@ -1,4 +1,4 @@
-package com.m3libea.todo.model;
+package com.m3libea.todo.data;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;

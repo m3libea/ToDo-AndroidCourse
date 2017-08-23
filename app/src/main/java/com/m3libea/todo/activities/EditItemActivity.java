@@ -1,4 +1,4 @@
-package com.m3libea.todo;
+package com.m3libea.todo.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.m3libea.todo.model.Item;
+import com.m3libea.todo.R;
+import com.m3libea.todo.data.Item;
 
 import java.util.Calendar;
 import java.util.Date;

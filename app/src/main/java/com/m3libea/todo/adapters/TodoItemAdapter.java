@@ -1,4 +1,4 @@
-package com.m3libea.todo;
+package com.m3libea.todo.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.m3libea.todo.model.Item;
+import com.m3libea.todo.R;
+import com.m3libea.todo.data.Item;
 
 import java.text.Format;
 import java.util.List;
